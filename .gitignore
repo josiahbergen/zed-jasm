@@ -1,3 +1,4 @@
 .zed/
 node_modules/
+grammars/
 .DS_Store

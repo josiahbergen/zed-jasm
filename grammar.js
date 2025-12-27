@@ -138,6 +138,6 @@ module.exports = grammar({
 
     label_name: ($) => /[a-zA-Z][a-zA-Z0-9_]*/,
 
-    comment: ($) => /#.*/,
+    comment: ($) => /;.*/,
   },
 });

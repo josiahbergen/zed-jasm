@@ -793,7 +793,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ADVANCE_MAP(
         '\n', 69,
         '"', 4,
-        '#', 239,
         '%', 73,
         '&', 82,
         '(', 74,
@@ -805,6 +804,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         '/', 79,
         '0', 172,
         ':', 88,
+        ';', 239,
         '<', 6,
         '>', 7,
         'D', 158,
@@ -855,11 +855,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 1:
       if (lookahead == '\n') ADVANCE(69);
-      if (lookahead == '#') ADVANCE(239);
       if (lookahead == '%') ADVANCE(73);
       if (lookahead == '(') ADVANCE(74);
       if (lookahead == '0') ADVANCE(172);
       if (lookahead == ':') ADVANCE(88);
+      if (lookahead == ';') ADVANCE(239);
       if (lookahead == '\t' ||
           lookahead == ' ') SKIP(1);
       if (lookahead == 'A' ||
@@ -890,7 +890,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 2:
       if (lookahead == '\n') ADVANCE(69);
-      if (lookahead == '#') ADVANCE(239);
+      if (lookahead == ';') ADVANCE(239);
       if (lookahead == 'D') ADVANCE(8);
       if (lookahead == 'E') ADVANCE(14);
       if (lookahead == 'd') ADVANCE(32);
@@ -931,10 +931,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead != 0) ADVANCE(4);
       END_STATE();
     case 5:
-      if (lookahead == '#') ADVANCE(239);
       if (lookahead == '%') ADVANCE(73);
       if (lookahead == '(') ADVANCE(74);
       if (lookahead == '0') ADVANCE(172);
+      if (lookahead == ';') ADVANCE(239);
       if (lookahead == '\t' ||
           lookahead == ' ') SKIP(5);
       if (('1' <= lookahead && lookahead <= '9')) ADVANCE(173);
@@ -1213,7 +1213,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 67:
       if (eof) ADVANCE(68);
       if (lookahead == '\n') ADVANCE(69);
-      if (lookahead == '#') ADVANCE(239);
+      if (lookahead == ';') ADVANCE(239);
       if (lookahead == 'D') ADVANCE(175);
       if (lookahead == 'M') ADVANCE(177);
       if (lookahead == 'd') ADVANCE(201);
