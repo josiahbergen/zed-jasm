@@ -19,7 +19,7 @@ module.exports = grammar({
 
     line: ($) =>
       seq(
-        optional(choice($.instruction, $.label, $.macro, $.data)),
+        optional(choice($.instruction, $.label, $.macro, $.data, $.macro_call)),
         // We expect a newline at the end of every line
         /\n/,
       ),
@@ -41,8 +41,10 @@ module.exports = grammar({
 
     macro_arg: ($) => seq("%", $.label_name),
 
+    macro_call: ($) => seq($.label_name, optional($.op_list)),
+
     // --- Instructions ---
-    instruction: ($) => seq($.mnemonic, optional($.op_list)),
+    instruction: ($) => prec(1, seq($.mnemonic, optional($.op_list))),
 
     op_list: ($) => seq($._generic_op, repeat(seq(",", $._generic_op))),
 

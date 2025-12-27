@@ -33,6 +33,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "data"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "macro_call"
                 }
               ]
             },
@@ -147,12 +151,12 @@
         }
       ]
     },
-    "instruction": {
+    "macro_call": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "mnemonic"
+          "name": "label_name"
         },
         {
           "type": "CHOICE",
@@ -167,6 +171,31 @@
           ]
         }
       ]
+    },
+    "instruction": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "mnemonic"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "op_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "op_list": {
       "type": "SEQ",
