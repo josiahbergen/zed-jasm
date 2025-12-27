@@ -1,0 +1,4 @@
+name = "JASM"
+grammar = "jasm"
+path_suffixes = ["jasm"]
+line_comments = ["; "]

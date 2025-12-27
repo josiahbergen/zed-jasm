@@ -1,0 +1,11 @@
+id = "jasm-lang"
+name = "JASM Assembly Language"
+version = "0.0.1"
+schema_version = 1
+authors = ["Josiah Bergen <hello@jojobinx.com>"]
+description = "JASM language support for the Zed code editor."
+repository = "https://github.com/josiahbergen/zed-jasm"
+
+[grammars.jasm]
+repository = ""
+rev = "HEAD"
