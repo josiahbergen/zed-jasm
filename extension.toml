@@ -7,5 +7,5 @@ description = "JASM language support for the Zed code editor."
 repository = "https://github.com/josiahbergen/zed-jasm"
 
 [grammars.jasm]
-repository = ""
-rev = "HEAD"
+repository = "https://github.com/josiahbergen/zed-jasm"
+rev = "5a87f0ca1648848c7751e635a8d2309272b51b0a" # sha of the most recent commit to the grammar branch
