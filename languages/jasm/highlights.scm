@@ -21,7 +21,7 @@
 (macro_arg) @property
 
 (macro_call
-  (label_name) @function)
+  (label_name) @keyword)
 
 ; Ensure the arguments inside the macro call still highlight correctly
 (macro_call
